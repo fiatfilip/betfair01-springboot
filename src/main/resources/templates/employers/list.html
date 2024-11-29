@@ -1,0 +1,15 @@
+<html>
+<head>
+    <title th:text="#{employers.list}"></title>
+</head>
+<body>
+    <h1 th:text="#{employers.list}"></h1>
+
+    <ol>
+        <li th:each="employer : ${employerList}">
+            <span th:text="${employer.name}"></span>
+            <a th:href="@{'/employers/delete/' + ${employer.id}}">X</a>
+        </li>
+    </ol>
+</body>
+</html>
