@@ -2,6 +2,7 @@ package ro.betfair.springboot.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -12,6 +13,11 @@ public class Employer {
     private UUID id;
 
     private String name;
+
+    private String city;
+
+    @OneToMany(mappedBy = "employer")
+    private List<Employee> employees;
 
     public UUID getId() {
         return id;
@@ -25,4 +31,15 @@ public class Employer {
         this.name = name;
     }
 
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public List<Employee> getEmployees() {
+        return employees;
+    }
 }
